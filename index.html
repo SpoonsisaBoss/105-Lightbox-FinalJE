@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Lightbox Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="../105-Lightbox-FinalJE/css/lightbox.css">
+    <link rel="stylesheet" href="css/styling.css">
+  </head>
+  <body>
+    <!-- Gallery/Image Code -->
+
+
+    <!-- Lightbox Code -->
+    <div id="lightboxContainer" class="display">
+      <div id="lightboxBackground" class="closer"></div>
+      <img id="lightbox" src="" alt="">
+      
+      <div id="gallery">
+      <img id='pic1' class='galleryImage' src="images/Architectural_Illustration_Project2_2021_JEdery.jpg" alt="">
+      <img id='pic2' class='galleryImage' src="images/LayeredMoviePoster2_2021_JEdery-1.jpg" alt="">
+      <img id='pic3' class='galleryImage' src="images/MattePaintingProjectFinal_2021_JEdery.jpg" alt="">
+    </div>
+      
+    <span id="lightboxCloser" class="closer">×</span>
+    </div>
+
+    <!-- Lightbox JavaScript -->
+    <script type="text/javascript">
+    let lightboxContainer = document.getElementById('lightboxContainer');
+    let lightboxBackground = document.getElementById('lightboxBackground');
+    let lightbox = document.getElementById('lightbox');
+    lightbox.style.width = '500px';
+    let lightboxCloser = document.getElementById('lightboxCloser');
+
+    function openLightbox(){
+      lightboxContainer.classList.add('display');
+      lightbox.src = this.src;
+    }
+
+    //use a variable to reference all images; not GET but reference 
+    let galleryImages = document.getElementsByClassName('galleryImage');
+    //KICC
+    //Keyword Initiator Checker Continuer 
+    for (let i = 0; i < galleryImages.length; i++) {
+     let galleryImage = galleryImages[i];
+     galleryImage.onclick = openLightbox;
+    }
+
+    // let coffeeImage = document.getElementById('coffeeImage');
+    // coffeeImage.onclick = openLightbox;
+
+    // let pic1 = document.getElementById('pic1');
+    // pic1.onclick = openLightbox;
+    
+    // let pic2 = document.getElementById('pic2');
+    // pic2.onclick = openLightbox;
+    
+    // let pic3 = document.getElementById('pic3');
+    // pic3.onclick = openLightbox;
+
+    
+    function closeLightbox(){
+      lightboxContainer.classList.remove('display');
+      lightbox.src = ' ';
+      lightbox.style.width = ' ';
+      lightbox.style.height = ' ';
+    }
+
+    let closers = document.getElementsByClassName('closer');
+    for (let i = 0; i < closers.length; i++) {
+      let closer = closers[i]; 
+      closer.onclick = closeLightbox;
+    }
+
+  
+
+    </script>
+  </body>
+</html>
